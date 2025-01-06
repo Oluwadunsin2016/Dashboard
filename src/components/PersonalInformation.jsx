@@ -8,7 +8,7 @@ import { IoIosMail, IoMdCall } from "react-icons/io";
 const PersonalInformation = ({selectedUser}) => {
 
   return (
-      <div className="bg-white border py-4 px-10 rounded-md mb-4">
+      <div className="bg-white border px-4 py-4 md:px-10 rounded-md mb-4">
 <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
    <div className="w-24 h-24 rounded-lg md:rounded-full flex-none overflow-hidden">
           <img
@@ -56,10 +56,25 @@ const PersonalInformation = ({selectedUser}) => {
         <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2"><IoIosMail className="text-gray-400" size={18} /> {selectedUser.email}</div>
         </div>
 
-        <div className="grid grid-cols-3">
-        <div className="text-gray-500 font-medium text-sm">Social media handles</div>
-        <div className="text-gray-800 font-semibold text-sm col-span-2">{selectedUser.officeAddress}</div>
-        </div>
+       <div className="grid grid-cols-3">
+  <div className="text-gray-500 font-medium text-sm">Social media handles</div>
+  <div className="text-gray-800 font-semibold text-sm col-span-2 space-y-1">
+    {selectedUser.social_handles.map((handle, index) => (
+      <div key={index} className="flex items-center gap-2">
+        <span className="text-gray-600">{handle.platform}:</span>
+        <a
+          href={handle.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 hover:underline"
+        >
+          {handle.url}
+        </a>
+      </div>
+    ))}
+  </div>
+</div>
+
       </div>
     </div>
   )

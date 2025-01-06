@@ -73,6 +73,11 @@ export const users = [
     contact: "+2348143454433",
     mobile: "+2348143454433",
     email: "johndoe@gmail.com",
+    social_handles: [
+      { platform: "Twitter", url: "https://twitter.com/johndoe" },
+      { platform: "LinkedIn", url: "https://linkedin.com/in/johndoe" },
+      { platform: "Instagram", url: "https://instagram.com/johndoe" },
+    ],
   },
   {
     name: "Jane Smith",
@@ -84,6 +89,11 @@ export const users = [
     contact: "+2348147454537",
     mobile: "+2348147454537",
     email: "janesmith@gmail.com",
+    social_handles: [
+      { platform: "Twitter", url: "https://twitter.com/janesmith" },
+      { platform: "GitHub", url: "https://github.com/janesmith" },
+      { platform: "LinkedIn", url: "https://linkedin.com/in/janesmith" },
+    ],
   },
   {
     name: "Michael Brown",
@@ -95,6 +105,11 @@ export const users = [
     contact: "+2348032233211",
     mobile: "+2348032233211",
     email: "michaelbrown@gmail.com",
+    social_handles: [
+      { platform: "Twitter", url: "https://twitter.com/michaelbrown" },
+      { platform: "LinkedIn", url: "https://linkedin.com/in/michaelbrown" },
+      { platform: "Dribbble", url: "https://dribbble.com/michaelbrown" },
+    ],
   },
   {
     name: "Emily Johnson",
@@ -106,6 +121,11 @@ export const users = [
     contact: "+2348067654455",
     mobile: "+2348067654455",
     email: "emilyjohnson@gmail.com",
+    social_handles: [
+      { platform: "Facebook", url: "https://facebook.com/emilyjohnson" },
+      { platform: "Instagram", url: "https://instagram.com/emilyjohnson" },
+      { platform: "LinkedIn", url: "https://linkedin.com/in/emilyjohnson" },
+    ],
   },
   {
     name: "David Williams",
@@ -117,6 +137,11 @@ export const users = [
     contact: "+2348071112233",
     mobile: "+2348071112233",
     email: "davidwilliams@gmail.com",
+    social_handles: [
+      { platform: "Twitter", url: "https://twitter.com/davidwilliams" },
+      { platform: "Kaggle", url: "https://kaggle.com/davidwilliams" },
+      { platform: "LinkedIn", url: "https://linkedin.com/in/davidwilliams" },
+    ],
   },
   {
     name: "Sophia Davis",
@@ -128,6 +153,11 @@ export const users = [
     contact: "+2348056788899",
     mobile: "+2348056788899",
     email: "sophiadavis@gmail.com",
+    social_handles: [
+      { platform: "GitHub", url: "https://github.com/sophiadavis" },
+      { platform: "LinkedIn", url: "https://linkedin.com/in/sophiadavis" },
+      { platform: "Twitter", url: "https://twitter.com/sophiadavis" },
+    ],
   },
 ];
 
