@@ -18,45 +18,45 @@ const PersonalInformation = ({selectedUser}) => {
           />
         </div>
       <div className="w-full space-y-4">
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 gap-4">
         <div className="text-gray-500 font-medium text-sm">Full Name</div>
         <div className="text-gray-800 font-semibold text-sm col-span-2">{selectedUser.name}</div>
         </div>
 
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 gap-4">
         <div className="text-gray-500 font-medium text-sm">Date of Birth</div>
         <div className="text-gray-800 font-semibold text-sm col-span-2">{selectedUser.dob}</div>
         </div>
 
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 gap-4">
         <div className="text-gray-500 font-medium text-sm">Home Address</div>
         <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2"><FaLocationDot className="text-gray-400" size={18} /> {selectedUser.homeAddress}</div>
         </div>
 
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 gap-4">
         <div className="text-gray-500 font-medium text-sm">Office Address</div>
         <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2"><FaLocationDot className="text-gray-400" size={18} /> {selectedUser.officeAddress}</div>
         </div>
       </div>
 </div>
 <hr className="my-4" />
-  <div className="w-full space-y-4 mt-4">
-        <div className="grid grid-cols-3">
+  <div className="w-full space-y-4 mt-8">
+        <div className="grid grid-cols-3 gap-4">
         <div className="text-gray-500 font-medium text-sm">Phone number</div>
         <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2"><IoMdCall className="text-gray-400" size={18} /> {selectedUser.contact}</div>
         </div>
 
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 gap-4">
         <div className="text-gray-500 font-medium text-sm">Mobile</div>
         <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2"><FaMobile className="text-gray-400" size={18} /> {selectedUser.mobile}</div>
         </div>
 
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 gap-4">
         <div className="text-gray-500 font-medium text-sm">Email Address</div>
         <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2"><IoIosMail className="text-gray-400" size={18} /> {selectedUser.email}</div>
         </div>
 
-       <div className="grid grid-cols-3">
+       <div className="grid grid-cols-3 gap-4">
   <div className="text-gray-500 font-medium text-sm">Social media handles</div>
   <div className="text-gray-800 font-semibold text-sm col-span-2 space-y-1">
     {selectedUser.social_handles.map((handle, index) => (
@@ -66,7 +66,7 @@ const PersonalInformation = ({selectedUser}) => {
           href={handle.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-500 hover:underline"
+          className="text-blue-500 hover:underline line-clamp-1"
         >
           {handle.url}
         </a>
