@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { User } from "@nextui-org/react";
 import { users } from "../utils/data";
 
