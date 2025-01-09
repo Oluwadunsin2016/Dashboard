@@ -1,57 +1,82 @@
 import { MdHome,MdContacts,MdNotifications } from "react-icons/md";
-import { FaUsers} from "react-icons/fa";
+import { FaUsers, FaWhatsapp} from "react-icons/fa";
 import { CiEdit } from "react-icons/ci";
 import PersonalInformation from "../components/PersonalInformation";
 import IdentityVerification from "../components/IdentityVerification";
 import BusinessInformation from "../components/BusinessInformation";
+import { FaLocationDot } from "react-icons/fa6";
+import { IoIosMail, IoMdCall } from "react-icons/io";
+import Compliance from "../components/Compliance";
 
 export const services = [
   {
     label: "Electric Car",
     value: "electric_car",
-    image: "https://m.media-amazon.com/images/I/61lwZr22zkL._AC_UF894,1000_QL80_.jpg"
+    image: "https://m.media-amazon.com/images/I/61lwZr22zkL._AC_UF894,1000_QL80_.jpg",
+    website: "https://www.electriccar.com"
   },
   {
     label: "Cross Border Payment",
     value: "cross_border_payment",
-    image: "https://www.nitrobox.com/wp-content/uploads/what-are-payment-service-providers-wiki-article-feature-image.png"
+    image: "https://www.nitrobox.com/wp-content/uploads/what-are-payment-service-providers-wiki-article-feature-image.png",
+    website: "https://www.crossborderpayment.com"
   },
   {
     label: "Credit Card - Workforce CC",
     value: "creditcard_workforce_cc",
-    image: "https://media.gettyimages.com/id/1779996890/photo/bath-united-kingdom-in-this-photo-illustration-the-visa-mastercard-and-american-express-logos.jpg?s=612x612&w=gi&k=20&c=Q-ZrjkJtTiJG8OsS0Oqqqya8ElLsf-fzdZ15gJBpNts="
+    image: "https://media.gettyimages.com/id/1779996890/photo/bath-united-kingdom-in-this-photo-illustration-the-visa-mastercard-and-american-express-logos.jpg?s=612x612&w=gi&k=20&c=Q-ZrjkJtTiJG8OsS0Oqqqya8ElLsf-fzdZ15gJBpNts=",
+    website: "https://www.creditcardworkforcecc.com"
   },
   {
     label: "Restaurant",
     value: "restaurant",
-    image: "https://blog.vectatravels.com/wp-content/uploads/2018/05/rsz_fancy.jpg"
+    image: "https://blog.vectatravels.com/wp-content/uploads/2018/05/rsz_fancy.jpg",
+    website: "https://www.restaurant.com"
   },
   {
     label: "C-Mall Ecommerce",
     value: "c_mall_ecommerce",
-    image: "https://www.servcorp.co.uk/media/34561/e-commerce-img.jpeg?format=webp&quality=80&width=688"
+    image: "https://www.servcorp.co.uk/media/34561/e-commerce-img.jpeg?format=webp&quality=80&width=688",
+    website: "https://www.cmall-ecommerce.com"
   },
   {
     label: "Music Money Box - MMB",
     value: "music_money_box",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtKVYn8mgqSf0Fb0AXsuHTdnJ8D_rrj9nT3g&s"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtKVYn8mgqSf0Fb0AXsuHTdnJ8D_rrj9nT3g&s",
+    website: "https://www.musicmoneybox.com"
   },
   {
     label: "Real Estate",
     value: "real_estate",
-    image: "https://cdn.prod.website-files.com/62d9c717894dc19357ee7640/63ca8aa33c1b3b7c87cc13d3_realestate.jpg"
+    image: "https://cdn.prod.website-files.com/62d9c717894dc19357ee7640/63ca8aa33c1b3b7c87cc13d3_realestate.jpg",
+    website: "https://www.realestate.com"
   },
   {
     label: "Car Pooling Service",
     value: "car_pooling_service",
-    image: "https://www.elog-group.com/upload/pooling_sistem1.jpg"
+    image: "https://www.elog-group.com/upload/pooling_sistem1.jpg",
+    website: "https://www.carpoolingservice.com"
   },
   {
     label: "Mobile Health Service",
     value: "mobile_health_service",
-    image: "https://media.licdn.com/dms/image/v2/C4D1BAQHKoycNIXHKYg/company-background_10000/company-background_10000/0/1583639567756/medex_healthcare_co_cover?e=2147483647&v=beta&t=cxhITWOAEuXZ7PO7ZSVwbflxEqE2uBMWpRVzcZI5FpY"
+    image: "https://media.licdn.com/dms/image/v2/C4D1BAQHKoycNIXHKYg/company-background_10000/company-background_10000/0/1583639567756/medex_healthcare_co_cover?e=2147483647&v=beta&t=cxhITWOAEuXZ7PO7ZSVwbflxEqE2uBMWpRVzcZI5FpY",
+    website: "https://www.mobilehealthservice.com"
+  },
+  {
+    label: "SME/Nano Credit",
+    value: "SME/Nano_Credit",
+    image: "https://guardian.ng/wp-content/uploads/2023/01/smes-640x360.jpg",
+    website: "https://www.smenanocredit.com"
+  },
+  {
+    label: "Logistics",
+    value: "logistics",
+    image: "https://dailytrust.com/wp-content/uploads/2022/09/Efficient-Logistics.jpg",
+    website: "https://www.logistics.com"
   }
 ];
+
 
 export const navIcons = [
 {name:'Home', icon: MdHome },
@@ -70,6 +95,7 @@ export const users = [
     dob: "04/08/1990",
     homeAddress: "123 Main Street, Springfield, USA",
     officeAddress: "456 Corporate Blvd, Springfield, USA",
+    whatsapp: "+2348143454433",
     contact: "+2348143454433",
     mobile: "+2348143454433",
     email: "johndoe@gmail.com",
@@ -80,15 +106,16 @@ export const users = [
       { platform: "Instagram", url: "https://instagram.com/johndoe" },
     ],
     business_sector: [
-      { label: "Business Work Email", value: "business.johndoe@gmail.com" },
-      { label: "Business WhatsApp Number", value: "+2348141234567" },
-      { label: "Business Work Address", value: "789 Commerce Way, Springfield, USA" },
+      { label: "Business Sector", value: "Banking" },
+      { label: "Business Work Email", icon:IoIosMail, value: "business.johndoe@gmail.com" },
+      { label: "Business WhatsApp Number", value: "+2348141234567", icon: FaWhatsapp },
+      { label: "Business Work Address", icon:FaLocationDot, value: "789 Commerce Way, Springfield, USA" },
       { label: "Business Closest Bstop", value: "Commerce Street Stop" },
     ],
     work_sector: [
-      { label: "Work Email Address", value: "work.johndoe@company.com" },
-      { label: "Work Phone Number", value: "+2348149876543" },
-      { label: "Office Address", value: "456 Corporate Blvd, Springfield, USA" },
+      { label: "Work Email Address", icon:FaLocationDot, value: "work.johndoe@company.com" },
+      { label: "Work Phone Number", icon:IoMdCall, value: "+2348149876543" },
+      { label: "Office Address", icon:FaLocationDot, value: "456 Corporate Blvd, Springfield, USA" },
       { label: "Office Bstop", value: "Corporate Blvd Stop" },
     ],
     account_information: [
@@ -112,6 +139,7 @@ export const users = [
     dob: "12/03/1985",
     homeAddress: "456 Elm Street, Chicago, USA",
     officeAddress: "789 Innovation Way, Chicago, USA",
+    whatsapp: "+2348147454537",
     contact: "+2348147454537",
     mobile: "+2348147454537",
     email: "janesmith@gmail.com",
@@ -122,15 +150,16 @@ export const users = [
       { platform: "LinkedIn", url: "https://linkedin.com/in/janesmith" },
     ],
     business_sector: [
-      { label: "Business Work Email", value: "business.janesmith@gmail.com" },
-      { label: "Business WhatsApp Number", value: "+2348142345678" },
-      { label: "Business Work Address", value: "123 Tech Park, Chicago, USA" },
+      { label: "Business Sector", value: "Agriculture" },
+      { label: "Business Work Email", icon:IoIosMail, value: "business.janesmith@gmail.com" },
+      { label: "Business WhatsApp Number", value: "+2348142345678", icon: FaWhatsapp },
+      { label: "Business Work Address", icon:FaLocationDot, value: "123 Tech Park, Chicago, USA" },
       { label: "Business Closest Bstop", value: "Tech Park Stop" },
     ],
     work_sector: [
-      { label: "Work Email Address", value: "work.janesmith@company.com" },
-      { label: "Work Phone Number", value: "+2348148765432" },
-      { label: "Office Address", value: "789 Innovation Way, Chicago, USA" },
+      { label: "Work Email Address", icon:FaLocationDot, value: "work.janesmith@company.com" },
+      { label: "Work Phone Number", icon:IoMdCall, value: "+2348148765432" },
+      { label: "Office Address", icon:FaLocationDot, value: "789 Innovation Way, Chicago, USA" },
       { label: "Office Bstop", value: "Innovation Blvd Stop" },
     ],
     account_information: [
@@ -154,6 +183,7 @@ export const users = [
     dob: "22/05/1988",
     homeAddress: "789 Pine Street, Austin, USA",
     officeAddress: "123 Marketing Drive, Austin, USA",
+    whatsapp: "+2348141238765",
     contact: "+2348141238765",
     mobile: "+2348141238765",
     email: "michaelbrown@gmail.com",
@@ -164,15 +194,16 @@ export const users = [
       { platform: "LinkedIn", url: "https://linkedin.com/in/michaelbrown" },
     ],
     business_sector: [
-      { label: "Business Work Email", value: "business.michaelbrown@gmail.com" },
-      { label: "Business WhatsApp Number", value: "+2348145678901" },
-      { label: "Business Work Address", value: "234 Commerce Blvd, Austin, USA" },
+      { label: "Business Sector", value: "Spar" },
+      { label: "Business Work Email", icon:IoIosMail, value: "business.michaelbrown@gmail.com" },
+      { label: "Business WhatsApp Number", value: "+2348145678901", icon: FaWhatsapp },
+      { label: "Business Work Address", icon:FaLocationDot, value: "234 Commerce Blvd, Austin, USA" },
       { label: "Business Closest Bstop", value: "Commerce Blvd Stop" },
     ],
     work_sector: [
-      { label: "Work Email Address", value: "work.michaelbrown@company.com" },
-      { label: "Work Phone Number", value: "+2348143456789" },
-      { label: "Office Address", value: "123 Marketing Drive, Austin, USA" },
+      { label: "Work Email Address", icon:FaLocationDot, value: "work.michaelbrown@company.com" },
+      { label: "Work Phone Number", icon:IoMdCall, value: "+2348143456789" },
+      { label: "Office Address", icon:FaLocationDot, value: "123 Marketing Drive, Austin, USA" },
       { label: "Office Bstop", value: "Marketing Drive Stop" },
     ],
     account_information: [
@@ -196,6 +227,7 @@ export const users = [
     dob: "23/11/1988",
     homeAddress: "321 Oak Street, Houston, USA",
     officeAddress: "654 Commerce Road, Houston, USA",
+    whatsapp: "+2348067654455",
     contact: "+2348067654455",
     mobile: "+2348067654455",
     email: "emilyjohnson@gmail.com",
@@ -206,15 +238,16 @@ export const users = [
       { platform: "LinkedIn", url: "https://linkedin.com/in/emilyjohnson" },
     ],
     business_sector: [
-      { label: "Business Work Email", value: "business.emilyjohnson@gmail.com" },
-      { label: "Business WhatsApp Number", value: "+2348145678902" },
-      { label: "Business Work Address", value: "234 Marketing Blvd, Houston, USA" },
+      { label: "Business Sector", value: "Spar" },
+      { label: "Business Work Email", icon:IoIosMail, value: "business.emilyjohnson@gmail.com" },
+      { label: "Business WhatsApp Number", value: "+2348145678902", icon: FaWhatsapp },
+      { label: "Business Work Address", icon:FaLocationDot, value: "234 Marketing Blvd, Houston, USA" },
       { label: "Business Closest Bstop", value: "Marketing Blvd Stop" },
     ],
     work_sector: [
-      { label: "Work Email Address", value: "work.emilyjohnson@company.com" },
-      { label: "Work Phone Number", value: "+2348143456788" },
-      { label: "Office Address", value: "456 Commerce Road, Houston, USA" },
+      { label: "Work Email Address", icon:FaLocationDot, value: "work.emilyjohnson@company.com" },
+      { label: "Work Phone Number", icon:IoMdCall, value: "+2348143456788" },
+      { label: "Office Address", icon:FaLocationDot, value: "456 Commerce Road, Houston, USA" },
       { label: "Office Bstop", value: "Commerce Road Stop" },
     ],
     account_information: [
@@ -238,6 +271,7 @@ export const users = [
     dob: "05/02/1993",
     homeAddress: "678 Cedar Lane, New York, USA",
     officeAddress: "890 Analytics Drive, New York, USA",
+    whatsapp: "+2348071112233",
     contact: "+2348071112233",
     mobile: "+2348071112233",
     email: "davidwilliams@gmail.com",
@@ -248,15 +282,16 @@ export const users = [
       { platform: "LinkedIn", url: "https://linkedin.com/in/davidwilliams" },
     ],
     business_sector: [
-      { label: "Business Work Email", value: "business.davidwilliams@gmail.com" },
-      { label: "Business WhatsApp Number", value: "+2348145678903" },
-      { label: "Business Work Address", value: "345 Data Blvd, New York, USA" },
+      { label: "Business Sector", value: "Agriculture" },
+      { label: "Business Work Email", icon:IoIosMail, value: "business.davidwilliams@gmail.com" },
+      { label: "Business WhatsApp Number", value: "+2348145678903", icon: FaWhatsapp },
+      { label: "Business Work Address", icon:FaLocationDot, value: "345 Data Blvd, New York, USA" },
       { label: "Business Closest Bstop", value: "Data Blvd Stop" },
     ],
     work_sector: [
-      { label: "Work Email Address", value: "work.davidwilliams@company.com" },
-      { label: "Work Phone Number", value: "+2348143456787" },
-      { label: "Office Address", value: "567 Analytics Drive, New York, USA" },
+      { label: "Work Email Address", icon:FaLocationDot, value: "work.davidwilliams@company.com" },
+      { label: "Work Phone Number", icon:IoMdCall, value: "+2348143456787" },
+      { label: "Office Address", icon:FaLocationDot, value: "567 Analytics Drive, New York, USA" },
       { label: "Office Bstop", value: "Analytics Drive Stop" },
     ],
     account_information: [
@@ -280,6 +315,7 @@ export const users = [
     dob: "09/09/1996",
     homeAddress: "234 Maple Avenue, Boston, USA",
     officeAddress: "567 Development Street, Boston, USA",
+    whatsapp: "+2348056788899",
     contact: "+2348056788899",
     mobile: "+2348056788899",
     email: "sophiadavis@gmail.com",
@@ -290,15 +326,16 @@ export const users = [
       { platform: "Twitter", url: "https://twitter.com/sophiadavis" },
     ],
     business_sector: [
-      { label: "Business Work Email", value: "business.sophiadavis@gmail.com" },
-      { label: "Business WhatsApp Number", value: "+2348145678904" },
-      { label: "Business Work Address", value: "678 Dev Blvd, Boston, USA" },
+      { label: "Business Sector", value: "Banking" },
+      { label: "Business Work Email", icon:IoIosMail, value: "business.sophiadavis@gmail.com" },
+      { label: "Business WhatsApp Number", value: "+2348145678904", icon: FaWhatsapp },
+      { label: "Business Work Address", icon:FaLocationDot, value: "678 Dev Blvd, Boston, USA" },
       { label: "Business Closest Bstop", value: "Dev Blvd Stop" },
     ],
     work_sector: [
-      { label: "Work Email Address", value: "work.sophiadavis@company.com" },
-      { label: "Work Phone Number", value: "+2348143456786" },
-      { label: "Office Address", value: "345 Development Street, Boston, USA" },
+      { label: "Work Email Address", icon:FaLocationDot, value: "work.sophiadavis@company.com" },
+      { label: "Work Phone Number", icon:IoMdCall, value: "+2348143456786" },
+      { label: "Office Address", icon:FaLocationDot, value: "345 Development Street, Boston, USA" },
       { label: "Office Bstop", value: "Development Street Stop" },
     ],
     account_information: [
@@ -323,5 +360,6 @@ export const tabs=[
 {label:'Personal Information', value:'personal information', component:PersonalInformation},
 {label:'Identity Verification', value:'identity verification', component:IdentityVerification},
 {label:'Business Information', value:'business information', component:BusinessInformation},
+{label:'Compliance', value:'compliance', component:Compliance},
 ]
 

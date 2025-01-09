@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { FaMobile } from "react-icons/fa";
+import { FaMobile, FaWhatsapp } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoIosMail, IoMdCall } from "react-icons/io";
 
@@ -30,12 +30,12 @@ const PersonalInformation = ({selectedUser}) => {
 
         <div className="grid grid-cols-3 gap-4">
         <div className="text-gray-500 font-medium text-sm">Home Address</div>
-        <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2"><FaLocationDot className="text-gray-400" size={18} /> {selectedUser.homeAddress}</div>
+        <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2"><FaLocationDot className="text-gray-400" size={16} /> {selectedUser.homeAddress}</div>
         </div>
 
         <div className="grid grid-cols-3 gap-4">
         <div className="text-gray-500 font-medium text-sm">Office Address</div>
-        <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2"><FaLocationDot className="text-gray-400" size={18} /> {selectedUser.officeAddress}</div>
+        <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2"><FaLocationDot className="text-gray-400" size={16} /> {selectedUser.officeAddress}</div>
         </div>
       </div>
 </div>
@@ -43,17 +43,22 @@ const PersonalInformation = ({selectedUser}) => {
   <div className="w-full space-y-4 mt-8">
         <div className="grid grid-cols-3 gap-4">
         <div className="text-gray-500 font-medium text-sm">Phone number</div>
-        <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2"><IoMdCall className="text-gray-400" size={18} /> {selectedUser.contact}</div>
+        <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2"><IoMdCall className="text-gray-400" size={16} /> {selectedUser.contact}</div>
         </div>
 
         <div className="grid grid-cols-3 gap-4">
         <div className="text-gray-500 font-medium text-sm">Mobile</div>
-        <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2"><FaMobile className="text-gray-400" size={18} /> {selectedUser.mobile}</div>
+        <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2"><FaMobile className="text-gray-400" size={16} /> {selectedUser.mobile}</div>
+        </div>
+
+        <div className="grid grid-cols-3 gap-4">
+        <div className="text-gray-500 font-medium text-sm">WhatsApp</div>
+        <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2"><FaWhatsapp className="text-gray-400" size={16} /> {selectedUser.whatsapp}</div>
         </div>
 
         <div className="grid grid-cols-3 gap-4">
         <div className="text-gray-500 font-medium text-sm">Email Address</div>
-        <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2"><IoIosMail className="text-gray-400" size={18} /> {selectedUser.email}</div>
+        <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2"><IoIosMail className="text-gray-400" size={16} /> {selectedUser.email}</div>
         </div>
 
        <div className="grid grid-cols-3 gap-4">
@@ -81,7 +86,7 @@ const PersonalInformation = ({selectedUser}) => {
   {selectedUser.account_information.map((item,i)=>(
         <div key={i} className="grid grid-cols-3 gap-4">
         <div className="text-gray-500 font-medium text-sm">{item.label}</div>
-        <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2">{item.value}</div>
+        <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2">{item?.icon &&<item.icon className="text-gray-400" size={16} />} {item.value}</div>
         </div>
   ))}
 
@@ -91,7 +96,7 @@ const PersonalInformation = ({selectedUser}) => {
   {selectedUser.work_sector.map((item,i)=>(
         <div key={i} className="grid grid-cols-3 gap-4">
         <div className="text-gray-500 font-medium text-sm">{item.label}</div>
-        <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2">{item.value}</div>
+        <div className="text-gray-800 font-semibold text-sm col-span-2 flex items-center gap-2">{item?.icon &&<item.icon className="text-gray-400" size={16} />} {item.value}</div>
         </div>
   ))}
 
