@@ -72,10 +72,10 @@ const MainContent = ({ selectedUser, selectedService }) => {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="flex flex-col justify-between w-full">
+        <div className="flex flex-col justify-between w-full gap-8">
           <h2 className="text-lg font-bold">{selectedService.label}</h2>
-          <div className="flex items-center justify-between">
-            <div className="flex flex-col md:flex-row items-center gap-2">
+          <div className="flex md:items-center justify-between">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-2">
               <span className="bg-gray-100 border-2 text-gray-400 rounded-full px-4 py-1">
                 6 users
               </span>
