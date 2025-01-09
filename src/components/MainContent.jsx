@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Tab, Tabs } from "@nextui-org/react";
 import { PiDotsThreeOutlineLight } from "react-icons/pi";
-import { tabs } from "../utils/data";
+import { tabs } from "../lib/data";
 
 const MainContent = ({ selectedUser, selectedService }) => {
   return (

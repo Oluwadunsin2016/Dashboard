@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { User } from "@nextui-org/react";
-import { users } from "../utils/data";
+import { users } from "../lib/data";
+import { formatDateString } from "../lib/utils";
 
 const RightSidebar = ({setSelectedUser,selectedUser,setInfoOpen}) => {
 
@@ -18,7 +19,7 @@ setInfoOpen(false)
       avatarProps={{
         src: user.image,
       }}
-      description={user.role}
+      description={formatDateString(user.created_at)}
       name={user.name}
     /></li>
       ))}

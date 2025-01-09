@@ -4,7 +4,7 @@ import RightSidebar from './components/RightSidebar';
 import MainContent from './components/MainContent';
 import BottomNav from './components/BottomNav';
 import { useState } from 'react';
-import { services, users } from './utils/data';
+import { services, users } from './lib/data';
 
 const App = () => {
 const [selectedUser, setSelectedUser] = useState(users[0])

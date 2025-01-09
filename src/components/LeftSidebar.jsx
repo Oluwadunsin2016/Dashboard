@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { FaPlus } from "react-icons/fa";
-import { services } from "../utils/data";
+import { services } from "../lib/data";
 import { TbLogout2 } from "react-icons/tb";
 
 const LeftSidebar = ({setMenuOpen,setSelectedService,selectedService}) => {

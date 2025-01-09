@@ -73,6 +73,7 @@ export const users = [
     contact: "+2348143454433",
     mobile: "+2348143454433",
     email: "johndoe@gmail.com",
+    created_at:"2025-01-01T08:30:00.000Z",
     social_handles: [
       { platform: "Twitter", url: "https://twitter.com/johndoe" },
       { platform: "LinkedIn", url: "https://linkedin.com/in/johndoe" },
@@ -114,6 +115,7 @@ export const users = [
     contact: "+2348147454537",
     mobile: "+2348147454537",
     email: "janesmith@gmail.com",
+    created_at:"2024-12-22T10:08:00.000Z",
     social_handles: [
       { platform: "Twitter", url: "https://twitter.com/janesmith" },
       { platform: "GitHub", url: "https://github.com/janesmith" },
@@ -155,6 +157,7 @@ export const users = [
     contact: "+2348141238765",
     mobile: "+2348141238765",
     email: "michaelbrown@gmail.com",
+    created_at:"2024-12-10T12:22:00.000Z",
     social_handles: [
       { platform: "Facebook", url: "https://facebook.com/michaelbrown" },
       { platform: "Twitter", url: "https://twitter.com/michaelbrown" },
@@ -196,6 +199,7 @@ export const users = [
     contact: "+2348067654455",
     mobile: "+2348067654455",
     email: "emilyjohnson@gmail.com",
+    created_at:"2024-11-01T07:16:00.000Z",
     social_handles: [
       { platform: "Facebook", url: "https://facebook.com/emilyjohnson" },
       { platform: "Instagram", url: "https://instagram.com/emilyjohnson" },
@@ -237,6 +241,7 @@ export const users = [
     contact: "+2348071112233",
     mobile: "+2348071112233",
     email: "davidwilliams@gmail.com",
+    created_at:"2024-10-05T06:04:12.000Z",
     social_handles: [
       { platform: "Twitter", url: "https://twitter.com/davidwilliams" },
       { platform: "Kaggle", url: "https://kaggle.com/davidwilliams" },
@@ -278,6 +283,7 @@ export const users = [
     contact: "+2348056788899",
     mobile: "+2348056788899",
     email: "sophiadavis@gmail.com",
+    created_at:"2024-09-18T05:48:00.000Z",
     social_handles: [
       { platform: "GitHub", url: "https://github.com/sophiadavis" },
       { platform: "LinkedIn", url: "https://linkedin.com/in/sophiadavis" },

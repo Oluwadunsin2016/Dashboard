@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { TfiWorld } from "react-icons/tfi";
-import { navIcons } from "../utils/data";
+import { navIcons } from "../lib/data";
 import LeftSidebar from "./LeftSidebar";
 import { useState } from "react";
 import { IoSearch } from "react-icons/io5";

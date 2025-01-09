@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { FiInfo } from "react-icons/fi";
-import { navIcons } from "../utils/data";
+import { navIcons } from "../lib/data";
 import { useState } from "react";
 import RightSidebar from "./RightSidebar";
 
