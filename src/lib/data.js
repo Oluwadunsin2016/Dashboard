@@ -113,7 +113,7 @@ export const users = [
       { label: "Business Closest Bstop", value: "Commerce Street Stop" },
     ],
     work_sector: [
-      { label: "Work Email Address", icon:FaLocationDot, value: "work.johndoe@company.com" },
+      { label: "Work Email Address", icon:IoIosMail, value: "work.johndoe@company.com" },
       { label: "Work Phone Number", icon:IoMdCall, value: "+2348149876543" },
       { label: "Office Address", icon:FaLocationDot, value: "456 Corporate Blvd, Springfield, USA" },
       { label: "Office Bstop", value: "Corporate Blvd Stop" },
@@ -157,7 +157,7 @@ export const users = [
       { label: "Business Closest Bstop", value: "Tech Park Stop" },
     ],
     work_sector: [
-      { label: "Work Email Address", icon:FaLocationDot, value: "work.janesmith@company.com" },
+      { label: "Work Email Address", icon:IoIosMail, value: "work.janesmith@company.com" },
       { label: "Work Phone Number", icon:IoMdCall, value: "+2348148765432" },
       { label: "Office Address", icon:FaLocationDot, value: "789 Innovation Way, Chicago, USA" },
       { label: "Office Bstop", value: "Innovation Blvd Stop" },
@@ -201,7 +201,7 @@ export const users = [
       { label: "Business Closest Bstop", value: "Commerce Blvd Stop" },
     ],
     work_sector: [
-      { label: "Work Email Address", icon:FaLocationDot, value: "work.michaelbrown@company.com" },
+      { label: "Work Email Address", icon:IoIosMail, value: "work.michaelbrown@company.com" },
       { label: "Work Phone Number", icon:IoMdCall, value: "+2348143456789" },
       { label: "Office Address", icon:FaLocationDot, value: "123 Marketing Drive, Austin, USA" },
       { label: "Office Bstop", value: "Marketing Drive Stop" },
@@ -245,7 +245,7 @@ export const users = [
       { label: "Business Closest Bstop", value: "Marketing Blvd Stop" },
     ],
     work_sector: [
-      { label: "Work Email Address", icon:FaLocationDot, value: "work.emilyjohnson@company.com" },
+      { label: "Work Email Address", icon:IoIosMail, value: "work.emilyjohnson@company.com" },
       { label: "Work Phone Number", icon:IoMdCall, value: "+2348143456788" },
       { label: "Office Address", icon:FaLocationDot, value: "456 Commerce Road, Houston, USA" },
       { label: "Office Bstop", value: "Commerce Road Stop" },
@@ -289,7 +289,7 @@ export const users = [
       { label: "Business Closest Bstop", value: "Data Blvd Stop" },
     ],
     work_sector: [
-      { label: "Work Email Address", icon:FaLocationDot, value: "work.davidwilliams@company.com" },
+      { label: "Work Email Address", icon:IoIosMail, value: "work.davidwilliams@company.com" },
       { label: "Work Phone Number", icon:IoMdCall, value: "+2348143456787" },
       { label: "Office Address", icon:FaLocationDot, value: "567 Analytics Drive, New York, USA" },
       { label: "Office Bstop", value: "Analytics Drive Stop" },
@@ -333,7 +333,7 @@ export const users = [
       { label: "Business Closest Bstop", value: "Dev Blvd Stop" },
     ],
     work_sector: [
-      { label: "Work Email Address", icon:FaLocationDot, value: "work.sophiadavis@company.com" },
+      { label: "Work Email Address", icon:IoIosMail, value: "work.sophiadavis@company.com" },
       { label: "Work Phone Number", icon:IoMdCall, value: "+2348143456786" },
       { label: "Office Address", icon:FaLocationDot, value: "345 Development Street, Boston, USA" },
       { label: "Office Bstop", value: "Development Street Stop" },

@@ -34,9 +34,9 @@ const MainContent = ({ selectedUser, selectedService }) => {
 
       const element = mainRef.current;
       if (direction === "up") {
-        element.scrollBy({ top: -20, behavior: "smooth" });
+        element.scrollBy({ top: -50, behavior: "smooth" });
       } else if (direction === "down") {
-        element.scrollBy({ top: 20, behavior: "smooth" });
+        element.scrollBy({ top: 50, behavior: "smooth" });
       }
     }, 50); // Adjust for smoother or faster scrolling
   };
@@ -103,10 +103,9 @@ const MainContent = ({ selectedUser, selectedService }) => {
       {/* Scroll Controls */}
       <div className="sticky bottom-[6rem] right-4 z-50">
     <div className="relative">
-       <div className="absolute top-0 right-0  flex flex-col gap-2">
         {!isAtTop && (
           <button
-            className="p-2 bg-blue-100 text-gray-400 rounded-full shadow-md hover:bg-blue-200"
+            className="p-2 bg-blue-100 absolute top-0 right-0 text-gray-400 rounded-full shadow-md hover:bg-blue-200"
             onMouseDown={() => startScroll("up")}
             onMouseUp={stopScroll}
             onMouseLeave={stopScroll}
@@ -116,7 +115,7 @@ const MainContent = ({ selectedUser, selectedService }) => {
         )}
         {!isAtBottom && (
           <button
-            className="p-2 bg-blue-100 text-gray-400 rounded-full shadow-md hover:bg-blue-200"
+            className="p-2 bg-blue-100 absolute top-12 right-0 text-gray-400 rounded-full shadow-md hover:bg-blue-200"
             onMouseDown={() => startScroll("down")}
             onMouseUp={stopScroll}
             onMouseLeave={stopScroll}
@@ -124,7 +123,6 @@ const MainContent = ({ selectedUser, selectedService }) => {
             <FaArrowDown />
           </button>
         )}
-       </div>
     </div>
       </div>
     </main>
