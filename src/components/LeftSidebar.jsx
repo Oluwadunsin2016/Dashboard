@@ -7,7 +7,9 @@ const LeftSidebar = ({setMenuOpen,setSelectedService,selectedService}) => {
 
 const handleClick=(service)=>{
 setSelectedService(service)
-setMenuOpen(false)
+if (setMenuOpen) {
+  setMenuOpen(false)
+}
 }
   return (
     <aside className="h-full p-4 bg-white rounded-md border">

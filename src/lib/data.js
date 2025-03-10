@@ -7,6 +7,7 @@ import BusinessInformation from "../components/BusinessInformation";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoIosMail, IoMdCall } from "react-icons/io";
 import Compliance from "../components/Compliance";
+import InvestmentForm from "../components/InvestmentForm";
 
 export const services = [
   {
@@ -16,16 +17,22 @@ export const services = [
     website: "https://www.electriccar.com"
   },
   {
-    label: "Cross Border Payment",
-    value: "cross_border_payment",
+    label: "Africana",
+    value: "africana",
     image: "https://www.nitrobox.com/wp-content/uploads/what-are-payment-service-providers-wiki-article-feature-image.png",
     website: "https://www.crossborderpayment.com"
   },
+  // {
+  //   label: "Credit Card - Workforce CC",
+  //   value: "creditcard_workforce_cc",
+  //   image: "https://media.gettyimages.com/id/1779996890/photo/bath-united-kingdom-in-this-photo-illustration-the-visa-mastercard-and-american-express-logos.jpg?s=612x612&w=gi&k=20&c=Q-ZrjkJtTiJG8OsS0Oqqqya8ElLsf-fzdZ15gJBpNts=",
+  //   website: "https://www.creditcardworkforcecc.com"
+  // },
   {
-    label: "Credit Card - Workforce CC",
-    value: "creditcard_workforce_cc",
+    label: "Monicard",
+    value: "monicard",
     image: "https://media.gettyimages.com/id/1779996890/photo/bath-united-kingdom-in-this-photo-illustration-the-visa-mastercard-and-american-express-logos.jpg?s=612x612&w=gi&k=20&c=Q-ZrjkJtTiJG8OsS0Oqqqya8ElLsf-fzdZ15gJBpNts=",
-    website: "https://www.creditcardworkforcecc.com"
+    website: "https://credo-one.vercel.app/"
   },
   {
     label: "Restaurant",
@@ -46,8 +53,8 @@ export const services = [
     website: "https://www.musicmoneybox.com"
   },
   {
-    label: "Real Estate",
-    value: "real_estate",
+    label: "Real Estate Investment",
+    value: "real_estate_investment",
     image: "https://cdn.prod.website-files.com/62d9c717894dc19357ee7640/63ca8aa33c1b3b7c87cc13d3_realestate.jpg",
     website: "https://www.realestate.com"
   },
@@ -79,11 +86,11 @@ export const services = [
 
 
 export const navIcons = [
-{name:'Home', icon: MdHome },
-{name:'Contact', icon: MdContacts },
-{name:'Users', icon: FaUsers },
-{name:'Notifications', icon: MdNotifications },
-{name:'Edit', icon: CiEdit },
+{name:'Home', icon: MdHome, href:'/' },
+{name:'Contact', icon: MdContacts, href:'#' },
+{name:'Users', icon: FaUsers, href:'#' },
+{name:'Notifications', icon: MdNotifications, href:'#' },
+{name:'Edit', icon: CiEdit, href:'#' },
 ]
 
 
@@ -357,9 +364,15 @@ export const users = [
 
 
 export const tabs=[
-{label:'Personal Information', value:'personal information', component:PersonalInformation},
-{label:'Identity Verification', value:'identity verification', component:IdentityVerification},
-{label:'Business Information', value:'business information', component:BusinessInformation},
-{label:'Compliance', value:'compliance', component:Compliance},
+  {name:'monicard',tabLists:[
+  {label:'Personal Information', value:'personal information', component:PersonalInformation},
+  // {label:'Identity Verification', value:'identity verification', component:IdentityVerification},
+  // {label:'Business Information', value:'business information', component:BusinessInformation},
+  {label:'Compliance', value:'compliance', component:Compliance},
+  ]},
+  {name:'africana',tabLists:[
+  {label:'Personal Information', value:'personal information', component:PersonalInformation},
+  {label:'Add Products', value:'addProducts', component:InvestmentForm},
+  ]},
 ]
 

@@ -3,11 +3,12 @@ import { Tab, Tabs } from "@nextui-org/react";
 import { PiDotsThreeOutlineLight } from "react-icons/pi";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
-import { tabs } from "../lib/data";
+import { tabs as incomingTabs } from "../lib/data";
 
 const MainContent = ({ selectedUser, selectedService }) => {
   const [isAtTop, setIsAtTop] = useState(true);
   const [isAtBottom, setIsAtBottom] = useState(false);
+  const [tabs, setTabs] = useState([])
   const mainRef = useRef(null);
   const scrollInterval = useRef(null);
 
@@ -58,6 +59,12 @@ const MainContent = ({ selectedUser, selectedService }) => {
     };
   }, []);
 
+  useEffect(() => {
+const presentTabs=incomingTabs?.find(tab => tab?.name == selectedService?.value);
+setTabs(presentTabs?.tabLists)
+  }, [selectedService])
+  
+
   return (
     <main
       ref={mainRef}
@@ -93,9 +100,10 @@ const MainContent = ({ selectedUser, selectedService }) => {
         </div>
       </div>
       <Tabs color="primary" variant={"underlined"} className="flex">
-        {tabs.map((tab, i) => (
+        {tabs?.map((tab, i) => (
           <Tab key={i} title={tab.label} className="outline-none">
-            <tab.component selectedUser={selectedUser} />
+            <tab.component selectedApplication=
+            {selectedService} selectedUser={selectedUser} />
           </Tab>
         ))}
       </Tabs>

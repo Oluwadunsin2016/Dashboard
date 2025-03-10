@@ -1,3 +1,4 @@
+import toast from 'react-hot-toast';
 export function formatDateString(dateString) {
   const options = {
     year: "numeric",
@@ -15,3 +16,33 @@ export function formatDateString(dateString) {
 
   return `${formattedDate} at ${time}`;
 }
+
+export const formatDate=(dateString)=> {
+  const date = new Date(dateString);
+  const day = String(date.getUTCDate()).padStart(2, '0');
+  const month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are 0-based
+  const year = date.getUTCFullYear();
+
+  return `${day}-${month}-${year}`;
+}
+
+export const notifier = ({ message, type }) => {
+  const types = ['success', 'error'];
+
+  if (!types.includes(type)) {
+      console.warn(`Unsupported toast type: ${type}`);
+      return;
+  }
+
+  switch (type) {
+      case 'success':
+          toast.success(message);
+          break;
+      case 'error':
+          toast.error(message);
+          break;
+      default:
+          toast(message); // Fallback for a generic message
+          break;
+  }
+};
