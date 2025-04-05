@@ -13,7 +13,7 @@ const Home = ({setSelectedService,selectedService,selectedUser,setSelectedUser,s
       <MainContent selectedUser={selectedUser} selectedService={selectedService} />
       </div>
       <div className='hidden md:block col-span-2'>
-        <RightSidebar selectedService={selectedService} setSelectedUser={setSelectedUser} selectedUser={selectedUser} />
+        <RightSidebar setInfoOpen={setMenuOpen} selectedService={selectedService} setSelectedUser={setSelectedUser} selectedUser={selectedUser} />
       </div>
       </div>
   )

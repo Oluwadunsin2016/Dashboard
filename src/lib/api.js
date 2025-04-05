@@ -9,7 +9,14 @@ export const useGetAllUsers = (service) => {
         if (service=='monicard') {
             const res = await axios.get("http://localhost:5000/api/user/all");
             return res.data;     
-        }else{
+        }
+        else if (service=='africana') {
+            const res = await axios.get("http://localhost:1100/user/all");
+            console.log(res.data?.users);
+            
+            return res.data?.users;     
+        }
+        else{
             return users
         }
       },

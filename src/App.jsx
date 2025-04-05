@@ -2,12 +2,15 @@
 import { useEffect, useState } from 'react';
 import { services } from './lib/data';
 import { Route, Routes } from 'react-router-dom';
-import RootLayout from './RootLayout';
+import RootLayout from './layouts/RootLayout';
 import Home from './pages/Home';
 import SetExchangeRate from './pages/SetExchangeRate';
 import { useGetAllUsers } from './lib/api';
 import { useQueryClient } from '@tanstack/react-query';
 import { Toaster } from 'react-hot-toast';
+import AuthLayout from './layouts/AuthLayout';
+import { SignIn } from './pages/SignIn';
+import { SignUp } from './pages/SignUp';
 
 const App = () => {
   const querClient=useQueryClient()
@@ -38,6 +41,10 @@ const App = () => {
       <Route path="" element={<Home setSelectedService={setSelectedService} selectedService={selectedService} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>} />
       <Route path='set-exchange-rate' element={<SetExchangeRate/>} />
       </Route>
+      <Route path="/" element={<AuthLayout />}>
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/sign-up" element={<SignUp />} />
+        </Route>
     </Routes>
     <Toaster position="top-center" reverseOrder={false} />
     </div>

@@ -13,7 +13,7 @@ const Navbar = ({setSelectedService,selectedService}) => {
     <header className="bg-white shadow-sm sticky top-0 z-10 flex items-center justify-between gap-4 px-4 md:px-8 py-2">
       <div className="flex items-center gap-4">
         {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Quora_logo_2015.svg/512px-Quora_logo_2015.svg.png" alt="Quora Logo" className="w-40 h-8" /> */}
-        <h1 className="text-xl md:text-3xl tracking-wide md:tracking-widest uppercase text-red-500 app-logo">Dashboard</h1>
+        <h1 className="text-xl md:text-3xl uppercase text-blue-500 app-logo">Admin</h1>
         <div className="hidden md:flex items-center gap-8 px-6">
           {navIcons?.map((navIcon, i) => (
               <Link to={navIcon.href} className="group relative cursor-pointer text-gray-500" key={i}>

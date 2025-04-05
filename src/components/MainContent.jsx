@@ -4,6 +4,7 @@ import { PiDotsThreeOutlineLight } from "react-icons/pi";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import { tabs as incomingTabs } from "../lib/data";
+import { useUsersStore } from "../store/Global";
 
 const MainContent = ({ selectedUser, selectedService }) => {
   const [isAtTop, setIsAtTop] = useState(true);
@@ -11,6 +12,7 @@ const MainContent = ({ selectedUser, selectedService }) => {
   const [tabs, setTabs] = useState([])
   const mainRef = useRef(null);
   const scrollInterval = useRef(null);
+   const {users}=useUsersStore()
 
   const handleScroll = () => {
     const element = mainRef.current;
@@ -63,6 +65,9 @@ const MainContent = ({ selectedUser, selectedService }) => {
 const presentTabs=incomingTabs?.find(tab => tab?.name == selectedService?.value);
 setTabs(presentTabs?.tabLists)
   }, [selectedService])
+
+  console.log(selectedUser);
+  
   
 
   return (
@@ -72,24 +77,24 @@ setTabs(presentTabs?.tabLists)
     >
       {/* Content */}
       <div className="bg-white border p-4 rounded-md mb-4 flex gap-6">
-        <div className="w-[10rem] h-[6rem] rounded-lg overflow-hidden">
+        <div className="w-[5rem] h-[5rem] md:w-[10rem] md:h-[6rem] flex-none rounded-lg overflow-hidden">
           <img
             src={selectedService.image}
             alt=""
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="flex flex-col justify-between w-full gap-8">
+        <div className="flex flex-col justify-between w-full gap-8 overflow-x-hidden">
           <h2 className="text-lg font-bold">{selectedService.label}</h2>
           <div className="flex md:items-center justify-between">
             <div className="flex flex-col md:flex-row items-start md:items-center gap-2">
               <span className="bg-gray-100 border-2 text-gray-400 rounded-full px-4 py-1">
-                6 users
+                {users?.length} {users?.length > 1 ? "Users" : "User"}
               </span>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 hover:underline line-clamp-1"
+                className="text-blue-500 hover:underline !line-clamp-1"
                 href={selectedService.website}
               >
                 {selectedService.website}

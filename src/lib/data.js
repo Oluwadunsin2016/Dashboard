@@ -3,24 +3,25 @@ import { FaUsers, FaWhatsapp} from "react-icons/fa";
 import { CiEdit } from "react-icons/ci";
 import PersonalInformation from "../components/PersonalInformation";
 import IdentityVerification from "../components/IdentityVerification";
-import BusinessInformation from "../components/BusinessInformation";
+// import BusinessInformation from "../components/BusinessInformation";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoIosMail, IoMdCall } from "react-icons/io";
-import Compliance from "../components/Compliance";
-import InvestmentForm from "../components/InvestmentForm";
+import TransactionHistory from "../components/TransactionHistory";
+import moniclan from "../assets/moniclan.jpeg";
+// import Compliance from "../components/Compliance";
 
 export const services = [
+  // {
+  //   label: "Electric Car",
+  //   value: "electric_car",
+  //   image: "https://m.media-amazon.com/images/I/61lwZr22zkL._AC_UF894,1000_QL80_.jpg",
+  //   website: "https://www.electriccar.com"
+  // },
   {
-    label: "Electric Car",
-    value: "electric_car",
-    image: "https://m.media-amazon.com/images/I/61lwZr22zkL._AC_UF894,1000_QL80_.jpg",
-    website: "https://www.electriccar.com"
-  },
-  {
-    label: "Africana",
+    label: "Moniclan",
     value: "africana",
-    image: "https://www.nitrobox.com/wp-content/uploads/what-are-payment-service-providers-wiki-article-feature-image.png",
-    website: "https://www.crossborderpayment.com"
+    image: moniclan,
+    website: "https://moniclan.com"
   },
   // {
   //   label: "Credit Card - Workforce CC",
@@ -28,60 +29,60 @@ export const services = [
   //   image: "https://media.gettyimages.com/id/1779996890/photo/bath-united-kingdom-in-this-photo-illustration-the-visa-mastercard-and-american-express-logos.jpg?s=612x612&w=gi&k=20&c=Q-ZrjkJtTiJG8OsS0Oqqqya8ElLsf-fzdZ15gJBpNts=",
   //   website: "https://www.creditcardworkforcecc.com"
   // },
-  {
-    label: "Monicard",
-    value: "monicard",
-    image: "https://media.gettyimages.com/id/1779996890/photo/bath-united-kingdom-in-this-photo-illustration-the-visa-mastercard-and-american-express-logos.jpg?s=612x612&w=gi&k=20&c=Q-ZrjkJtTiJG8OsS0Oqqqya8ElLsf-fzdZ15gJBpNts=",
-    website: "https://credo-one.vercel.app/"
-  },
-  {
-    label: "Restaurant",
-    value: "restaurant",
-    image: "https://blog.vectatravels.com/wp-content/uploads/2018/05/rsz_fancy.jpg",
-    website: "https://www.restaurant.com"
-  },
-  {
-    label: "C-Mall Ecommerce",
-    value: "c_mall_ecommerce",
-    image: "https://www.servcorp.co.uk/media/34561/e-commerce-img.jpeg?format=webp&quality=80&width=688",
-    website: "https://www.cmall-ecommerce.com"
-  },
-  {
-    label: "Music Money Box - MMB",
-    value: "music_money_box",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtKVYn8mgqSf0Fb0AXsuHTdnJ8D_rrj9nT3g&s",
-    website: "https://www.musicmoneybox.com"
-  },
-  {
-    label: "Real Estate Investment",
-    value: "real_estate_investment",
-    image: "https://cdn.prod.website-files.com/62d9c717894dc19357ee7640/63ca8aa33c1b3b7c87cc13d3_realestate.jpg",
-    website: "https://www.realestate.com"
-  },
-  {
-    label: "Car Pooling Service",
-    value: "car_pooling_service",
-    image: "https://www.elog-group.com/upload/pooling_sistem1.jpg",
-    website: "https://www.carpoolingservice.com"
-  },
-  {
-    label: "Mobile Health Service",
-    value: "mobile_health_service",
-    image: "https://media.licdn.com/dms/image/v2/C4D1BAQHKoycNIXHKYg/company-background_10000/company-background_10000/0/1583639567756/medex_healthcare_co_cover?e=2147483647&v=beta&t=cxhITWOAEuXZ7PO7ZSVwbflxEqE2uBMWpRVzcZI5FpY",
-    website: "https://www.mobilehealthservice.com"
-  },
-  {
-    label: "SME/Nano Credit",
-    value: "SME/Nano_Credit",
-    image: "https://guardian.ng/wp-content/uploads/2023/01/smes-640x360.jpg",
-    website: "https://www.smenanocredit.com"
-  },
-  {
-    label: "Logistics",
-    value: "logistics",
-    image: "https://dailytrust.com/wp-content/uploads/2022/09/Efficient-Logistics.jpg",
-    website: "https://www.logistics.com"
-  }
+  // {
+  //   label: "Monicard",
+  //   value: "monicard",
+  //   image: "https://media.gettyimages.com/id/1779996890/photo/bath-united-kingdom-in-this-photo-illustration-the-visa-mastercard-and-american-express-logos.jpg?s=612x612&w=gi&k=20&c=Q-ZrjkJtTiJG8OsS0Oqqqya8ElLsf-fzdZ15gJBpNts=",
+  //   website: "https://credo-one.vercel.app/"
+  // },
+  // {
+  //   label: "Restaurant",
+  //   value: "restaurant",
+  //   image: "https://blog.vectatravels.com/wp-content/uploads/2018/05/rsz_fancy.jpg",
+  //   website: "https://www.restaurant.com"
+  // },
+  // {
+  //   label: "C-Mall Ecommerce",
+  //   value: "c_mall_ecommerce",
+  //   image: "https://www.servcorp.co.uk/media/34561/e-commerce-img.jpeg?format=webp&quality=80&width=688",
+  //   website: "https://www.cmall-ecommerce.com"
+  // },
+  // {
+  //   label: "Music Money Box - MMB",
+  //   value: "music_money_box",
+  //   image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtKVYn8mgqSf0Fb0AXsuHTdnJ8D_rrj9nT3g&s",
+  //   website: "https://www.musicmoneybox.com"
+  // },
+  // {
+  //   label: "Real Estate Investment",
+  //   value: "real_estate_investment",
+  //   image: "https://cdn.prod.website-files.com/62d9c717894dc19357ee7640/63ca8aa33c1b3b7c87cc13d3_realestate.jpg",
+  //   website: "https://www.realestate.com"
+  // },
+  // {
+  //   label: "Car Pooling Service",
+  //   value: "car_pooling_service",
+  //   image: "https://www.elog-group.com/upload/pooling_sistem1.jpg",
+  //   website: "https://www.carpoolingservice.com"
+  // },
+  // {
+  //   label: "Mobile Health Service",
+  //   value: "mobile_health_service",
+  //   image: "https://media.licdn.com/dms/image/v2/C4D1BAQHKoycNIXHKYg/company-background_10000/company-background_10000/0/1583639567756/medex_healthcare_co_cover?e=2147483647&v=beta&t=cxhITWOAEuXZ7PO7ZSVwbflxEqE2uBMWpRVzcZI5FpY",
+  //   website: "https://www.mobilehealthservice.com"
+  // },
+  // {
+  //   label: "SME/Nano Credit",
+  //   value: "SME/Nano_Credit",
+  //   image: "https://guardian.ng/wp-content/uploads/2023/01/smes-640x360.jpg",
+  //   website: "https://www.smenanocredit.com"
+  // },
+  // {
+  //   label: "Logistics",
+  //   value: "logistics",
+  //   image: "https://dailytrust.com/wp-content/uploads/2022/09/Efficient-Logistics.jpg",
+  //   website: "https://www.logistics.com"
+  // }
 ];
 
 
@@ -366,13 +367,13 @@ export const users = [
 export const tabs=[
   {name:'monicard',tabLists:[
   {label:'Personal Information', value:'personal information', component:PersonalInformation},
-  // {label:'Identity Verification', value:'identity verification', component:IdentityVerification},
+  {label:'Identity Verification', value:'identity verification', component:IdentityVerification},
   // {label:'Business Information', value:'business information', component:BusinessInformation},
-  {label:'Compliance', value:'compliance', component:Compliance},
+  // {label:'Compliance', value:'compliance', component:Compliance},
   ]},
   {name:'africana',tabLists:[
   {label:'Personal Information', value:'personal information', component:PersonalInformation},
-  {label:'Add Products', value:'addProducts', component:InvestmentForm},
+  {label:'Transaction History', value:'addProducts', component:TransactionHistory},
   ]},
 ]
 

@@ -1,14 +1,19 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import axios from "axios";
-import { Select, SelectItem, Input, Button } from "@nextui-org/react";
+import { Select, SelectItem, Input, Button, Spinner } from "@nextui-org/react";
 import { countries } from "../libs/constants";
+import exchange_rate from '../assets/exchange_rate.png';
 
 const SetExchangeRate = () => {
   const [fromCountry, setFromCountry] = useState(null);
   const [toCountry, setToCountry] = useState(null);
   const [rate, setRate] = useState("");
+  const [isPending, setIsPending] = useState(false);
   const [message, setMessage] = useState("");
+ 
+  const available= !!fromCountry && !!toCountry && !!rate
+
 
   const uniqueCountries = Array.from(new Map(countries.map(c => [c.code, c])).values());
 
@@ -21,6 +26,7 @@ const SetExchangeRate = () => {
     }
 
     try {
+      setIsPending(true);
       const response = await axios.post("https://dashboard-backend-hazel-five.vercel.app/api/set-rate", {
         fromCountry: fromCountry, // Send country name instead of object
         toCountry: toCountry,     // Send country name instead of object
@@ -33,16 +39,30 @@ const SetExchangeRate = () => {
         setToCountry(null);
         setRate("");
       }
+      setIsPending(false);
     } catch (err) {
       setMessage("Error setting exchange rate");
+      setIsPending(false);
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6 text-center">Set Exchange Rate</h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="bg-white p-6 min-h-[60vh] max-w-4xl rounded-lg shadow-lg flex flex-col md:flex-row">
+      <div className="flex-1 flex items-center justify-center p-4">
+          <img
+            src={exchange_rate}
+            alt="OTP Illustration"
+            width={400}
+            height={800}
+          />
+        </div>
+       <div className="flex-1 p-6 flex flex-col justify-center items-center">
+       <h1 className="text-2xl font-bold mb-6 text-center">Set Exchange Rate</h1>
+        <p className="text-gray-600 text-sm mb-4 text-center italic">
+  Enter how much 1 unit of the selected <b>From Country</b> currency is worth in the selected <b>To Country</b> currency.
+</p>
+        <form onSubmit={handleSubmit} className="space-y-4 w-full">
 
           {/* From Country */}
           <Select
@@ -94,13 +114,20 @@ const SetExchangeRate = () => {
           />
 
           {/* Submit Button */}
-          <Button type="submit" color="primary" fullWidth>
-            Set Rate
+          <Button isDisabled={isPending || !available} type="submit" color="primary" fullWidth className="rounded-md">
+          {isPending ? (
+        <span className="flex items-center gap-1 justify-center">    <Spinner size="sm"
+        color="white"
+      /> Please wait...</span>
+          ):
+            <span>Set Rate</span>
+          }
           </Button>
         </form>
 
         {/* Message Display */}
         {message && <p className="mt-4 text-center text-sm text-gray-600">{message}</p>}
+       </div>
       </div>
     </div>
   );
