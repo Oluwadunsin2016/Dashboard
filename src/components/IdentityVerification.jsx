@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import { Button } from "@nextui-org/react"
+// import { Button } from "@nextui-org/react"
 
 
 const IdentityVerification = ({selectedUser}) => {

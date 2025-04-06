@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { User } from "@nextui-org/react";
-import { users } from "../lib/data";
 import { formatDateString } from "../lib/utils";
 import { useGetAllUsers } from "../lib/api";
 import { useEffect } from "react";

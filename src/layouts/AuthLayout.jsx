@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { FaBolt, FaFileAlt, FaLock } from "react-icons/fa";
+import { FaBolt, FaLock } from "react-icons/fa";
 import { MdCheckCircle } from "react-icons/md";
 
 const AuthLayout = () => {

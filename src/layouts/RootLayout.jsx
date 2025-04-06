@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import Navbar from '../components/Navbar';
-import BottomNav from '../components/BottomNav';
+// import BottomNav from '../components/BottomNav';
 import { Outlet } from 'react-router-dom';
 const RootLayout = ({setSelectedService,selectedService}) => {
   return (
