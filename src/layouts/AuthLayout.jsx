@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
-import { FaFileAlt, FaLock } from "react-icons/fa";
+import { FaBolt, FaFileAlt, FaLock } from "react-icons/fa";
+import { MdCheckCircle } from "react-icons/md";
 
 const AuthLayout = () => {
 
@@ -9,17 +10,17 @@ const AuthLayout = () => {
         <div className="pattern-4 flex h-full flex-col justify-between gap-6 overflow-hidden rounded-b-2xl md:rounded-bl-none md:rounded-r-2xl bg-[#161f42] px-8 py-12 text-white md:px-16 md:py-20">
           <div className="space-y-7">
             <p className="text-xl !leading-[1.2] text-center text-slate-50 md:text-[2.7rem] font-extrabold">
-                ADMININITRATION DASHBOARD
+                ADMINISTRATOR DASHBOARD
             </p>
             <p className="text-base tracking-wide text-center line-clamp-4">
-            This Admin dashboard is a centralized platform that gives administrators complete control and oversight of the system. It provides user management tools, transaction monitoring, and overall performance insights.
+            This admin dashboard is a centralized platform that gives administrators complete control and oversight of the system. It provides user management tools, transaction monitoring, and overall performance insights.
             </p>
           </div>
           <div className="border-1 border-slate-600 rounded-small flex justify-evenly p-6">
             {[
-              { name: "Efficiency", icon: FaFileAlt },
+              { name: "Efficiency", icon: FaBolt },
               { name: "Confidentiality", icon: FaLock },
-              { name: "Availability", icon: FaLock },
+              { name: "Availability", icon: MdCheckCircle },
             ].map((item, index) => (
               <div
                 key={index}

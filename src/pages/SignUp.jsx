@@ -168,7 +168,7 @@ export function SignUp() {
                 {errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword.message}</p>}
               </div>
               <div className="flex items-start justify-end">
-              <Button type="submit" isDisabled={isPending} className=" bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">
+              <Button type="submit" isDisabled={isPending} className=" bg-[#161f42] text-white py-2 rounded-lg hover:bg-[#121a38]"              >
                 {isPending? <span className="flex items-center gap-1 justify-center"><ImSpinner8 className='animate-spin' size={18} /> please wait...</span> :'Sign Up'}
               </Button>
               </div>

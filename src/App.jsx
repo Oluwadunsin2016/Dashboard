@@ -11,20 +11,20 @@ import { Toaster } from 'react-hot-toast';
 import AuthLayout from './layouts/AuthLayout';
 import { SignIn } from './pages/SignIn';
 import { SignUp } from './pages/SignUp';
+import { useUserStore } from './store/Global';
 
 const App = () => {
   const querClient=useQueryClient()
   const [selectedService, setSelectedService] = useState(services[0])
   const {data:users}= useGetAllUsers(selectedService?.value)
   console.log(users);
-  
-  const [selectedUser, setSelectedUser] = useState({})
+  const {setUser}=useUserStore()
 
   useEffect(() => {
     if (users&&users.length>0) {
       console.log(users);
       
-      setSelectedUser(users?.[0])
+      setUser(users?.[0])
     }
   }, [users])
   
@@ -37,8 +37,8 @@ const App = () => {
   return (
     <div className="h-screen flex flex-col bg-gray-50">
     <Routes>
-      <Route path="/" element={<RootLayout setSelectedService={setSelectedService} selectedService={selectedService} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>}>
-      <Route path="" element={<Home setSelectedService={setSelectedService} selectedService={selectedService} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>} />
+      <Route path="/" element={<RootLayout setSelectedService={setSelectedService} selectedService={selectedService}/>}>
+      <Route path="" element={<Home setSelectedService={setSelectedService} selectedService={selectedService}/>} />
       <Route path='set-exchange-rate' element={<SetExchangeRate/>} />
       </Route>
       <Route path="/" element={<AuthLayout />}>

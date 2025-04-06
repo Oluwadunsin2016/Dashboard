@@ -105,7 +105,7 @@ export function SignIn() {
           <Button
             type="submit"
             isDisabled={isPending}
-            className=" bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600"
+            className=" bg-[#161f42] text-white py-2 rounded-lg hover:bg-[#121a38]"
           >
             {isPending ? (
               <span className="flex items-center gap-1 justify-center">
@@ -119,7 +119,7 @@ export function SignIn() {
       </form>
       <p className="text-center text-sm mt-4">
         Don&apos;t have an account?{" "}
-        <Link to="/sign-up" className="text-blue-500">
+        <Link to="/sign-up" className="text-[#161f42]">
           Sign Up
         </Link>
       </p>

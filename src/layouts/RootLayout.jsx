@@ -3,7 +3,7 @@
 import Navbar from '../components/Navbar';
 import BottomNav from '../components/BottomNav';
 import { Outlet } from 'react-router-dom';
-const RootLayout = ({setSelectedService,selectedService,selectedUser,setSelectedUser}) => {
+const RootLayout = ({setSelectedService,selectedService}) => {
   return (
     <div>
           <Navbar setSelectedService={setSelectedService} selectedService={selectedService} />

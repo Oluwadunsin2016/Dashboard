@@ -4,15 +4,16 @@ import { PiDotsThreeOutlineLight } from "react-icons/pi";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import { tabs as incomingTabs } from "../lib/data";
-import { useUsersStore } from "../store/Global";
+import { useUsersStore, useUserStore } from "../store/Global";
 
-const MainContent = ({ selectedUser, selectedService }) => {
+const MainContent = ({ selectedService }) => {
   const [isAtTop, setIsAtTop] = useState(true);
   const [isAtBottom, setIsAtBottom] = useState(false);
   const [tabs, setTabs] = useState([])
   const mainRef = useRef(null);
   const scrollInterval = useRef(null);
    const {users}=useUsersStore()
+    const {user:selectedUser}=useUserStore()
 
   const handleScroll = () => {
     const element = mainRef.current;

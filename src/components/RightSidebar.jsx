@@ -8,7 +8,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { ImSpinner8 } from "react-icons/im";
 import { useUsersStore, useUserStore } from "../store/Global";
 
-const RightSidebar = ({setSelectedUser,selectedUser,setInfoOpen,selectedService}) => {
+const RightSidebar = ({selectedUser,selectedService,setIsUsersOpen}) => {
   const {data,isPending}= useGetAllUsers(selectedService?.value)
   const querClient=useQueryClient()
   const {users,setUsers}=useUsersStore()
@@ -22,8 +22,8 @@ const RightSidebar = ({setSelectedUser,selectedUser,setInfoOpen,selectedService}
   
 
 const handleClick=(user)=>{
-setSelectedUser(user)
-setInfoOpen(false)
+  setUser(user)
+setIsUsersOpen(false)
 }
 
 useEffect(() => {
@@ -42,7 +42,7 @@ console.log('selectedUser:',selectedUser);
   return (
     <aside className="bg-white rounded-md border h-full">
       <h2 className="font-bold border-b py-2 px-4">Users</h2>
-      <div className="p-4">
+      <div className="p-4 min-h-[80vh] md:min-h-[75vh]">
      
       {selectedService?.value=='monicard'? <div>
         {isPending? <div className="w-full h-full flex items-center justify-center"><ImSpinner8 className="animate-spin text-gray-400" size={25} /></div>:data?.length>1?<div className="w-full h-full flex items-center justify-center">No user available</div>: <ul>

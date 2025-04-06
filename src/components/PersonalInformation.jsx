@@ -6,6 +6,7 @@ import { IoIosMail, IoMdCall } from "react-icons/io";
 import { formatDate } from "../lib/utils";
 
 const PersonalInformation = ({ selectedUser, selectedApplication }) => {
+  // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState("");
 
   useEffect(() => {

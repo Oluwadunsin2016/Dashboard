@@ -1,6 +1,7 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { users } from "./data";
+import http from "../apis/http";
 
 export const useGetAllUsers = (service) => {
     return useQuery({
@@ -11,7 +12,7 @@ export const useGetAllUsers = (service) => {
             return res.data;     
         }
         else if (service=='africana') {
-            const res = await axios.get("http://localhost:1100/user/all");
+            const res = await http.get("/user/all");
             console.log(res.data?.users);
             
             return res.data?.users;     
