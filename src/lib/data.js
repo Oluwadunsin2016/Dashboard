@@ -21,7 +21,7 @@ export const services = [
     label: "Moniclan",
     value: "africana",
     image: moniclan,
-    website: "https://moniclan.com"
+    website: "https://moniclan.vercel.app"
   },
   // {
   //   label: "Credit Card - Workforce CC",
