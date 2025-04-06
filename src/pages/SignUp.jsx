@@ -118,8 +118,8 @@ export function SignUp() {
                   {...register("phone", {
                     required: "Phone number is required",
                     pattern: {
-                      value: /^0\d{10}$/,
-                      message: "Enter a valid 11-digit Nigerian phone number starting with 0",
+                      value: /^\+?[1-9]\d{7,14}$/, // Allows +1234567890 or 1234567890
+                      message: "Please enter a valid phone number",
                     },
                   })}
                   placeholder="08164874930"
