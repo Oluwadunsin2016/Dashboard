@@ -41,7 +41,7 @@ console.log('selectedUser:',selectedUser);
   return (
     <aside className="bg-white rounded-md border h-full">
       <h2 className="font-bold border-b py-2 px-4">Users</h2>
-      <div className="p-4 min-h-[80vh] md:min-h-[75vh]">
+      <div className="p-4 min-h-[80vh] md:h-[75vh] overflow-y-auto">
      
       {selectedService?.value=='monicard'? <div>
         {isPending? <div className="w-full h-full flex items-center justify-center"><ImSpinner8 className="animate-spin text-gray-400" size={25} /></div>:data?.length>1?<div className="w-full h-full flex items-center justify-center">No user available</div>: <ul>

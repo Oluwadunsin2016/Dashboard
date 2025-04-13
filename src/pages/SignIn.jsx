@@ -119,7 +119,7 @@ export function SignIn() {
       </form>
       <p className="text-center text-sm mt-4">
         Don&apos;t have an account?{" "}
-        <Link to="/sign-up" className="text-[#161f42]">
+        <Link to="/sign-up" className="text-blue-500">
           Sign Up
         </Link>
       </p>
