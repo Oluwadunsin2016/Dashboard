@@ -1,7 +1,16 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from 'react';
-import { formatCurrency } from '../lib/utils';
 import { useUserStore } from '../store/Global';
+import { useGetUserTransactions } from '../apis/transaction';
+import TransactionHistoryList from './TransactionHistoryList';
+import { useRef, useState } from 'react';
+import TransactionDetails from './TransactionDetails';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { motion } from 'framer-motion';
+
 
 // Mock data for transactions
 const mockTransactions = {
@@ -143,36 +152,54 @@ const mockTransactions = {
   ]
 };
 
-export default function TransactionHistory({ userId = 'user1' }) {
-  const [transactions, setTransactions] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+export default function TransactionHistory() {
+  const swiperRef = useRef(null);
+const [selected, setSelected] = useState({})
+
+  const goNext=(transaction)=>{
+  if(swiperRef.current){
+    setSelected(transaction)
+  swiperRef.current?.slideNext()
+  }
+  }
+  const goBack=()=>{
+  if(swiperRef.current){
+  swiperRef.current?.slidePrev()
+  }
+  }
 
   const {user}=useUserStore()
+const {data,isFetching,error}=useGetUserTransactions(user?.email)
+console.log(data)
 
-  useEffect(() => {
-    if (!userId) return;
+  // useEffect(() => {
+  //   if (!userId) return;
 
-    setLoading(true);
-    setError(null);
+  //   setLoading(true);
+  //   setError(null);
     
-    // Simulate API call with timeout
-    const timer = setTimeout(() => {
-      try {
-        const userTransactions = mockTransactions[userId] || [];
-        setTransactions(userTransactions);
-      } catch (err) {
-        setError('Failed to fetch transactions');
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    }, 500);
+  //   // Simulate API call with timeout
+  //   const timer = setTimeout(() => {
+  //     try {
+  //       const userTransactions = mockTransactions[userId] || [];
+  //       setTransactions(userTransactions);
+  //     } catch (err) {
+  //       setError('Failed to fetch transactions');
+  //       console.error(err);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   }, 500);
 
-    return () => clearTimeout(timer);
-  }, [userId]);
+  //   return () => clearTimeout(timer);
+  // }, [userId]);
 
-  if (!userId) {
+  const SwiperSteps = [
+    { id: 0, content: <TransactionHistoryList transactions={data?.transactions} goNext={goNext}/> },
+    { id: 1, content: <TransactionDetails transaction={selected} goBack={goBack}/>},
+];
+
+  if (!user?.email) {
     return (
       <div className="flex items-center justify-center p-8">
         <div className="text-center text-gray-500">
@@ -185,7 +212,7 @@ export default function TransactionHistory({ userId = 'user1' }) {
     );
   }
 
-  if (loading) {
+  if (isFetching) {
     return (
       <div className="flex justify-center items-center p-8">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500"></div>
@@ -212,86 +239,21 @@ export default function TransactionHistory({ userId = 'user1' }) {
 
   return (
     <div className="bg-white shadow overflow-hidden sm:rounded-lg">
-      <div className="px-4 py-5 sm:px-6 bg-gradient-to-r from-indigo-500 to-purple-600">
-        <h3 className="text-lg leading-6 font-medium text-white">
-          Transaction History
-        </h3>
-        <p className="mt-1 max-w-2xl text-sm text-indigo-100">
-          All transactions for {user?.firstName} {user?.lastName}
-        </p>
-      </div>
-      
-      {transactions.length > 0 ? (
-        <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
-              <tr>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Date & Time
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Amount
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Type
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Status
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Description
-                </th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {transactions.map((transaction) => (
-                <tr key={transaction.id} className="hover:bg-gray-50 transition-colors">
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">
-                      {new Date(transaction.date).toLocaleDateString()}
-                    </div>
-                    <div className="text-sm text-gray-500">
-                      {new Date(transaction.date).toLocaleTimeString()}
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className={`text-sm font-medium ${
-                      transaction.type === 'refund' ? 'text-green-600' : 'text-gray-900'
-                    }`}>
-                      {transaction.type === 'refund' ? '+' : '-'}{formatCurrency('NGN',transaction.amount)}
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900 capitalize">
-                      {transaction.type}
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                      transaction.status === 'completed' ? 'bg-green-100 text-green-800' :
-                      transaction.status === 'failed' ? 'bg-red-100 text-red-800' :
-                      'bg-yellow-100 text-yellow-800'
-                    }`}>
-                      {transaction.status}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4">
-                    <div className="text-sm text-gray-900">{transaction.description}</div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      ) : (
-        <div className="p-8 text-center">
-          <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <h3 className="mt-2 text-sm font-medium text-gray-900">No transactions</h3>
-          <p className="mt-1 text-sm text-gray-500">This user has no transaction history.</p>
-        </div>
-      )}
+             <Swiper
+        modules={[Navigation, Pagination]}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper; // Save swiper instance in ref
+        }}
+        spaceBetween={50}
+        slidesPerView={1}
+        className="h-auto"
+      >
+        {SwiperSteps.map((step) => (
+          <SwiperSlide key={step.id}>
+              {step.content}
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 }
