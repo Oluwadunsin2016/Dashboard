@@ -13,7 +13,7 @@ const PersonalInformation = ({ selectedUser, selectedApplication }) => {
     setUser(selectedUser?.personal_information);
   }, [selectedUser]);
 
-  console.log(selectedUser);
+  console.log("selectedUser:",selectedUser);
 
   return (
     <div>
@@ -241,6 +241,26 @@ const PersonalInformation = ({ selectedUser, selectedApplication }) => {
                   {selectedUser?.dob?formatDate(selectedUser?.dob):'N/A'}
                 </div>
               </div>
+              <div className="grid grid-cols-3 gap-4">
+                <div className="text-gray-500 font-medium text-sm">
+                  BVN
+                </div>
+                <div className="text-gray-800 font-semibold text-sm col-span-2">
+                {selectedUser?.bvn??'N/A'}
+                </div>
+              </div>
+             {selectedUser?.idCard && <div className="grid grid-cols-3 gap-4">
+                <div className="text-gray-500 font-medium text-sm">
+                  ID Card
+                </div>
+                <div className="text-gray-800 font-semibold text-sm col-span-2">
+             <img
+              src={selectedUser?.idCard}
+              alt="Uploaded Thumbnail"
+              className="w-16 h-10 object-cover rounded-lg"
+            />
+                </div>
+              </div>}
 
               {/* <div className="grid grid-cols-3 gap-4">
                 <div className="text-gray-500 font-medium text-sm">

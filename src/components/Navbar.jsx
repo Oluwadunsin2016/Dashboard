@@ -1,16 +1,17 @@
 /* eslint-disable react/prop-types */
-import { TfiWorld } from "react-icons/tfi";
-import { navIcons } from "../lib/data";
+// import { TfiWorld } from "react-icons/tfi";
+// import { navIcons } from "../lib/data";
 import LeftSidebar from "./LeftSidebar";
 import { useState } from "react";
 import { IoChevronDown, IoSearch } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { Button } from "@nextui-org/react";
+import { Button, Input } from "@nextui-org/react";
 import RightSidebar from "./RightSidebar";
 import { FaUsers } from "react-icons/fa";
 
 
-const Navbar = ({setSelectedService,selectedService}) => {
+
+const Navbar = ({setSelectedService,selectedService,setSearchInput, handleSearch}) => {
  const [menuOpen, setMenuOpen] = useState(false);
  const [isUsersOpen, setIsUsersOpen] = useState(false);
  const [openSearch, setOpenSearch] = useState(false);
@@ -33,10 +34,17 @@ const Navbar = ({setSelectedService,selectedService}) => {
         </div> */}
       </div>
       <div className="hidden md:flex items-center gap-6">
-      <input
-          type="text"
+      <Input
+      endContent={<IoSearch onClick={handleSearch} size={16} className="cursor-pointer" />}
+          type="number"
           placeholder="Search"
-          className="border rounded-full px-4 py-2 hidden md:block md:w-80 focus:outline-none"
+          variant="bordered"
+          radius="full"
+          className="md:w-80"
+          onChange={(e)=>setSearchInput(e.target.value)}
+          classNames={{
+            inputWrapper: "border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 text-sm",
+          }}
         />
            <Link to='/set-exchange-rate' className="bg-slate-200 rounded-full px-4 py-1">
         <p>Set Exchange Rate</p>
@@ -70,13 +78,19 @@ const Navbar = ({setSelectedService,selectedService}) => {
   </span>
 </Button>
       </div>
-        <div    className={`absolute top-14 px-4 left-0 z-[999] w-full transition-transform duration-300 ease-in-out ${
+        <div    className={`absolute top-14 px-4 left-0 z-[999] w-full transition-transform duration-300 bg-white ease-in-out ${
           openSearch ? "transform scale-y-100" : "transform scale-y-0"
         } origin-top`}>
-         <input
-          type="text"
+         <Input
+      endContent={<IoSearch onClick={handleSearch} size={16} className="cursor-pointer" />}
+          type="number"
           placeholder="Search"
-          className="border rounded-full bg-white px-4 py-2 w-full focus:outline-none"
+          variant="bordered"
+          radius="full"
+          onChange={(e)=>setSearchInput(e.target.value)}
+          classNames={{
+            inputWrapper: "border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 text-sm",
+          }}
         />
         </div>
 

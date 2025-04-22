@@ -76,10 +76,9 @@ const TransactionDetails = ({goBack,transaction}) => {
             </div>
           </div>
         </div>
-
-        {/* Recipient and Sender Details */}
-          {/* Recipient Card */}
-          <div className="bg-white overflow-hidden">
+        
+        <div className="md:grid grid-cols-2 gap-8">
+        <div className="bg-white overflow-hidden">
             <div className="px-6 py-2 border-b border-gray-200">
               <h2 className="text-lg font-medium">Account Details</h2>
             </div>
@@ -105,47 +104,6 @@ const TransactionDetails = ({goBack,transaction}) => {
             </div>
           </div>
 
-          {/* Sender Card */}
-          {/* <div className="bg-white overflow-hidden">
-            <div className="px-6 py-2 border-b border-gray-200">
-              <h2 className="text-lg font-medium">Sender Details</h2>
-            </div>
-            <div className="px-6 py-4">
-              <div className="mb-4">
-                <p className="text-sm font-medium text-gray-500">Full Name</p>
-                <p className="font-medium">
-                  {transaction?.senderDetails.firstName} {transaction?.senderDetails.lastName}
-                  {transaction?.senderDetails.isVerified && (
-                    <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                      Verified
-                    </span>
-                  )}
-                </p>
-              </div>
-              <div className="mb-4">
-                <p className="text-sm font-medium text-gray-500">Contact Information</p>
-                <p className="font-medium">{transaction?.senderDetails.email}</p>
-                <p className="text-sm text-gray-600">{transaction?.senderDetails.phone}</p>
-              </div>
-              <div className="mb-4">
-                <p className="text-sm font-medium text-gray-500">Address</p>
-                <p className="font-medium">
-                  {transaction?.senderDetails.apartment}, {transaction?.senderDetails.address}
-                </p>
-                <p className="text-sm text-gray-600">
-                  {transaction?.senderDetails.city}, {transaction?.senderDetails.state}
-                </p>
-              </div>
-              <div>
-                <p className="text-sm font-medium text-gray-500">Last Login</p>
-                <p className="text-sm text-gray-600">
-                  {formatDate(transaction?.senderDetails.lastlogin)}
-                </p>
-              </div>
-            </div>
-          </div> */}
-
-        {/* Additional Information */}
         <div className="bg-white overflow-hidden">
           <div className="px-6 py-2 border-b border-gray-200">
             <h2 className="text-lg font-medium">Additional Information</h2>
@@ -163,7 +121,14 @@ const TransactionDetails = ({goBack,transaction}) => {
               <p className="text-sm font-medium text-gray-500">Service</p>
               <p className="font-medium">{transaction?.service}</p>
             </div>}
-            <div className="flex items-center justify-between">
+            {transaction?.dueDate &&  <div className="mb-4">
+              <p className="text-sm font-medium text-gray-500">Expiration Date</p>
+              <p className="font-medium">{new Date(transaction?.dueDate).toLocaleDateString()}</p>
+            </div>}
+          </div>
+        </div>
+        </div>
+            <div className="flex items-center justify-between px-6 py-4">
               <div>
                 <p className="text-sm font-medium text-gray-500">Status</p>
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
@@ -174,8 +139,6 @@ const TransactionDetails = ({goBack,transaction}) => {
                 Download Receipt
               </button>
             </div>
-          </div>
-        </div>
       </div>
   );
 };
