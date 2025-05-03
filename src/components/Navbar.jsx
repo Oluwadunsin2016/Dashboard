@@ -8,13 +8,15 @@ import { Link } from "react-router-dom";
 import { Button, Input } from "@nextui-org/react";
 import RightSidebar from "./RightSidebar";
 import { FaUsers } from "react-icons/fa";
+import { useUserStore } from "../store/Global";
 
 
 
-const Navbar = ({setSelectedService,selectedService,setSearchInput, handleSearch}) => {
+const Navbar = ({setSelectedService,selectedService}) => {
  const [menuOpen, setMenuOpen] = useState(false);
  const [isUsersOpen, setIsUsersOpen] = useState(false);
  const [openSearch, setOpenSearch] = useState(false);
+  const {setSearchInput}=useUserStore()
   return (
     <header className="bg-white shadow-sm sticky top-0 z-10 flex items-center justify-between gap-4 px-4 md:px-8 py-2">
       <div className="flex items-center gap-4">
@@ -35,8 +37,7 @@ const Navbar = ({setSelectedService,selectedService,setSearchInput, handleSearch
       </div>
       <div className="hidden md:flex items-center gap-6">
       <Input
-      endContent={<IoSearch onClick={handleSearch} size={16} className="cursor-pointer" />}
-          type="number"
+      endContent={<IoSearch size={16} className="cursor-pointer" />}
           placeholder="Search"
           variant="bordered"
           radius="full"
@@ -82,7 +83,7 @@ const Navbar = ({setSelectedService,selectedService,setSearchInput, handleSearch
           openSearch ? "transform scale-y-100" : "transform scale-y-0"
         } origin-top`}>
          <Input
-      endContent={<IoSearch onClick={handleSearch} size={16} className="cursor-pointer" />}
+      endContent={<IoSearch size={16} className="cursor-pointer" />}
           type="number"
           placeholder="Search"
           variant="bordered"

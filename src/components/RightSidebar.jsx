@@ -11,7 +11,8 @@ const RightSidebar = ({ selectedService, setIsUsersOpen }) => {
   const { data, isPending } = useGetAllUsers(selectedService?.value);
   const queryClient = useQueryClient();
   const { users, setUsers } = useUsersStore();
-  const { setUser, user: selectedUser } = useUserStore();
+  const { setUser, user: selectedUser,searchInput } = useUserStore();
+  
 
   const userRefs = useRef({});
 
@@ -25,8 +26,28 @@ const RightSidebar = ({ selectedService, setIsUsersOpen }) => {
   };
 
   useEffect(() => {
-    setUsers(data?.filter(user => user?.role !== 'admin'));
+    // setUsers(data?.filter(user => user?.role !== 'admin'));
+    setUsers(data);
   }, [data]);
+
+  useEffect(() => {
+    if (searchInput !== '' && data) {
+      handleSearch();
+    } else {
+      setUsers(data); // reset to full list if input is empty
+    }
+  }, [searchInput, data]);
+  
+  const handleSearch = () => {
+    const searchedUsers = data?.filter(user =>
+      user.firstName?.toLowerCase().includes(searchInput.toLowerCase()) ||
+      user.lastName?.toLowerCase().includes(searchInput.toLowerCase()) ||
+      user.email?.toLowerCase().includes(searchInput.toLowerCase()) ||
+      user.phone?.includes(searchInput)
+    );
+    setUsers(searchedUsers);
+  };
+  
 
   useEffect(() => {
     const selectedKey = selectedService?.value === 'monicard'
@@ -91,6 +112,7 @@ const RightSidebar = ({ selectedService, setIsUsersOpen }) => {
                   <User
                     avatarProps={{ src: user?.image }}
                     name={<p className="line-clamp-1">{user?.firstName} {user?.lastName}</p>}
+                    description={ <span>{new Date(user.lastLogin).toLocaleDateString()} at {new Date(user.lastLogin).toLocaleTimeString()}</span> }
                   />
                 </li>
               ))}

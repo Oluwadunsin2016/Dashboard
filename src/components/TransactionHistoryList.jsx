@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { formatCurrency } from '../lib/utils';
 import { useUserStore } from '../store/Global';
-import { IoIosArrowRoundDown,IoIosArrowRoundUp } from "react-icons/io";
 import { Button } from '@nextui-org/react';
 
 const TransactionHistoryList = ({transactions,goNext}) => {
@@ -66,9 +65,9 @@ const TransactionHistoryList = ({transactions,goNext}) => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className={`px-2 inline-flex text-xs leading-5 py-1 font-semibold rounded-full ${
-                     transaction.senderEmail == user?.email ?'bg-yellow-100 text-yellow-600' : 'bg-green-100 text-green-600'
+                     transaction.status == 'pending' ?'bg-yellow-100 text-yellow-600' :transaction.status=='success'? 'bg-green-100 text-green-600':'bg-red-100 text-red-600'
                     }`}>
-                      {transaction.senderEmail == user?.email? <span className='flex items-center gap-1'>Sent <IoIosArrowRoundUp size={20} /></span> : <span className='flex items-center gap-1'>Received <IoIosArrowRoundDown size={20} /></span> }
+                      <span className='capitalize'>{transaction.status}</span>
                     </div>
                   </td>
                   <td className="px-6 py-4">

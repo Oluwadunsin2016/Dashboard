@@ -13,8 +13,10 @@ export const useUsersStore=create(persist((set)=>({
 
 export const useUserStore=create(persist((set)=>({
   user:{},
+  searchInput:'',
   setUser:(payload)=>set(()=>({user:payload})),
-  clearUser:()=>set(()=>({user:{}}))
+  clearUser:()=>set(()=>({user:{}})),
+  setSearchInput:(payload)=>set(()=>({searchInput:payload}))
 }),{
   name:'user'
 }))
